@@ -1,8 +1,6 @@
 # hot-takes
 
-## Installation
-
-## Configuration
+A hot take generator written in Haskell with Madlang + Miso.
 
 ```
 -------------------------------------------------------------------------------
