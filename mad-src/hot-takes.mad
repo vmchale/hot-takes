@@ -16,11 +16,24 @@
     1.0 "Fortran"
     1.0 "COBOL"
     1.0 "Brainfuck"
+    1.0 "D"
+    1.0 "Ruby"
+    1.0 "Java"
+    1.0 "Elm"
+
+:define pre-types
+    1.0 "linear"
+    1.0 "dependent"
+    1.0 "static"
+    1.0 "dynamic"
+
+:define types
+    1.0 pre-types " types"
 
 :define feature
     1.0 "duck typing"
     1.0 "monads"
-    1.0 "linear types"
+    1.0 types
     1.0 "first-class support for laziness"
 
 :define take
@@ -30,6 +43,7 @@
     1.0 language " doesn't even have " feature "."
     1.0 language " is the only language you'll ever need."
     1.0 language " is faster than C"
+    1.0 language " isn't useful in the real world."
 
 :return
     1.0 take
