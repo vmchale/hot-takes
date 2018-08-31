@@ -88,6 +88,8 @@
     1.0 "generics"
     1.0 "typeclasses"
     1.0 "macros"
+    1.0 "sum types"
+    1.0 "algebraic data types"
     1.0 "mutability"
     1.0 "purity"
     1.0 "concurrency"
