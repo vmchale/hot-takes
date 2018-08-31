@@ -100,7 +100,8 @@
     1.0 "Imperative"
 
 :define take
-    1.0 language " is shite."
+    1.0 language " is shit."
+    1.0 language " is crap."
     1.0 language " is less practical than " language
     1.0 language " is for weenies."
     12.0 language " doesn't even have " feature "."
