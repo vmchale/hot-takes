@@ -2,20 +2,17 @@ import           Development.Shake
 import           Development.Shake.Cabal
 import           Development.Shake.Clean
 import           Development.Shake.ClosureCompiler
+import           Development.Shake.FilePath
 import           System.Directory
 import qualified System.IO.Strict                  as Strict
 
 main :: IO ()
 main = shakeArgs shakeOptions { shakeFiles = ".shake", shakeLint = Just LintBasic } $ do
-    want [ "target/index.html", "README.md" ]
-
-    "deploy" ~> do
-        need [ "target/index.html", "target/all.min.js" ]
-        cmd ["ion", "-c", "cp target/* ~/programming/rust/nessa-site/static/hot-takes"]
+    want [ "docs/index.html", "README.md" ]
 
     "clean" ~> do
         cleanHaskell
-        removeFilesAfter "target" ["//*"]
+        removeFilesAfter "docs" ["//*"]
         removeFilesAfter ".shake" ["//*"]
 
     "README.md" %> \out -> do
@@ -26,7 +23,7 @@ main = shakeArgs shakeOptions { shakeFiles = ".shake", shakeLint = Just LintBasi
         html <- getDirectoryFiles "" ["web-src//*.html"]
         css <- getDirectoryFiles "" ["web-src//*.css"]
         need $ hs <> yaml <> cabal <> mad <> html <> css
-        (Stdout out') <- cmd ["poly", "-c", ".", "-e", "README.md", "-e", "TODO.md", "-e", "target", "-e", "Justfile"]
+        (Stdout out') <- cmd ["poly", "-c", ".", "-e", "README.md", "-e", "TODO.md", "-e", "docs", "-e", "Justfile"]
         file <- liftIO $ Strict.readFile out
         let header = takeWhile (/= replicate 79 '-') $ lines file
         let new = unlines header ++ out' ++ "```\n"
@@ -38,13 +35,13 @@ main = shakeArgs shakeOptions { shakeFiles = ".shake", shakeLint = Just LintBasi
         unit $ cmd ["bash", "-c", "madlang check mad-src/hot-takes.mad > /dev/null"]
         command [RemEnv "GHC_PACKAGE_PATH"] "cabal" ["new-build"]
 
-    googleClosureCompiler ["dist-newstyle/build/x86_64-linux/ghcjs-0.2.1.9008011/hot-takes-0.1.0.0/x/hot-takes/opt/build/hot-takes/hot-takes.jsexe/all.js", "dist-newstyle/build/x86_64-linux/ghcjs-0.2.1.9008011/hot-takes-0.1.0.0/x/hot-takes/opt/build/hot-takes/hot-takes.jsexe/all.js"] "target/all.min.js"
+    googleClosureCompiler ["dist-newstyle/build/x86_64-linux/ghcjs-0.2.1.9008011/hot-takes-0.1.0.0/x/hot-takes/opt/build/hot-takes/hot-takes.jsexe/all.js", "dist-newstyle/build/x86_64-linux/ghcjs-0.2.1.9008011/hot-takes-0.1.0.0/x/hot-takes/opt/build/hot-takes/hot-takes.jsexe/all.js"] "docs/all.min.js"
 
-    "target/styles.css" %> \out -> do
-        liftIO $ createDirectoryIfMissing True "target"
+    "docs/styles.css" %> \out -> do
+        liftIO $ createDirectoryIfMissing True (takeDirectory out)
         need ["web-src/styles.css"]
         copyFile' "web-src/styles.css" out
 
-    "target/index.html" %> \out -> do
-        need ["target/all.min.js", "web-src/index.html", "target/styles.css"]
+    "docs/index.html" %> \out -> do
+        need ["docs/all.min.js", "web-src/index.html", "docs/styles.css"]
         copyFile' "web-src/index.html" out
