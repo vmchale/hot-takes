@@ -28,6 +28,18 @@
     1.0 "Smalltalk"
     1.0 "Assembly"
     1.0 "Ada"
+    1.0 "APL"
+    1.0 "JSON"
+    1.0 "YAML"
+    1.0 "Idris"
+    1.0 "Dhall"
+    1.0 "TOML"
+    1.0 "Agda"
+    1.0 "Clean"
+    1.0 "Miranda"
+    1.0 "Gofer"
+    1.0 "ALGOL"
+    1.0 "Visual Basic"
 
 :define pre-types
     1.0 "linear"
@@ -44,6 +56,8 @@
     1.0 "generics"
     1.0 "typeclasses"
     1.0 "macros"
+    1.0 "mutability"
+    1.0 "purity"
     1.0 types
     1.0 "first-class support for laziness"
 
@@ -61,6 +75,13 @@
     1.0 language " is faster than C"
     1.0 language " isn't useful in the real world."
     1.0 language " is " paradigm "."
+    1.0 language " isn't beginner-friendly."
+    1.0 language " has a toxic community."
+    1.0 language " has a good community."
+    1.0 language " needs an IDE."
+    1.0 language " is a Turing tar pit."
+    1.0 language " is slow."
+    1.0 language " compile times are too slow."
 
 :return
     1.0 take
