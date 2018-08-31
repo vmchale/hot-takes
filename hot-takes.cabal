@@ -35,6 +35,6 @@ executable hot-takes
         madlang >=3.1.2.0,
         text -any,
         containers -any
-    
+
     if flag(development)
         ghc-options: -Werror
