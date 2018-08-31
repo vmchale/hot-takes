@@ -1,6 +1,35 @@
-:define coin
-    1.0 "heads"
-    1.0 "tails"
+:define language
+    1.0 "Go"
+    1.0 "Haskell"
+    1.0 "JavaScript"
+    1.0 "J"
+    1.0 "C"
+    1.0 "C#"
+    1.0 "C++"
+    1.0 "OCaml"
+    1.0 "K"
+    1.0 "ATS"
+    1.0 "Racket"
+    1.0 "Scheme"
+    1.0 "Lisp"
+    1.0 "Felix"
+    1.0 "Fortran"
+    1.0 "COBOL"
+    1.0 "Brainfuck"
+
+:define feature
+    1.0 "duck typing"
+    1.0 "monads"
+    1.0 "linear types"
+    1.0 "first-class support for laziness"
+
+:define take
+    1.0 language " is shite."
+    1.0 language " is less practical than " language
+    1.0 language " is for weenies."
+    1.0 language " doesn't even have " feature "."
+    1.0 language " is the only language you'll ever need."
+    1.0 language " is faster than C"
 
 :return
-    1.0 coin
+    1.0 take
