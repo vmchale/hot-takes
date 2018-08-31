@@ -61,7 +61,7 @@ keypress keys = if 82 `elem` S.toList keys then Regenerate else NoOp
 viewModel :: Model -> View Action
 viewModel x = div_ backgroundStyle
     [
-      p_ largeFont [ text "Press 'more' or hit 'r' for another hot-takes" ]
+      p_ largeFont [ text "Press 'more' or hit 'r' for another hot take" ]
     , p_ [] [ div_ (onClick Regenerate : buttonTraits) [ text "more" ] ]
     , p_ fontStyles [ text (toMisoString x) ]
     , p_ [] [ footer ]

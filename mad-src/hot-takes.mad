@@ -20,6 +20,12 @@
     1.0 "Ruby"
     1.0 "Java"
     1.0 "Elm"
+    1.0 "Standard ML"
+    1.0 "Python"
+    1.0 "Julia"
+    1.0 "Rust"
+    1.0 "Forth"
+    1.0 "Smalltalk"
 
 :define pre-types
     1.0 "linear"
@@ -36,6 +42,11 @@
     1.0 types
     1.0 "first-class support for laziness"
 
+:define paradigm
+    1.0 "OOP"
+    1.0 "FP"
+    1.0 "Imperative"
+
 :define take
     1.0 language " is shite."
     1.0 language " is less practical than " language
@@ -44,6 +55,7 @@
     1.0 language " is the only language you'll ever need."
     1.0 language " is faster than C"
     1.0 language " isn't useful in the real world."
+    1.0 language " is " paradigm "."
 
 :return
     1.0 take
