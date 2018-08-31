@@ -26,6 +26,8 @@
     1.0 "Rust"
     1.0 "Forth"
     1.0 "Smalltalk"
+    1.0 "Assembly"
+    1.0 "Ada"
 
 :define pre-types
     1.0 "linear"
@@ -39,6 +41,9 @@
 :define feature
     1.0 "duck typing"
     1.0 "monads"
+    1.0 "generics"
+    1.0 "typeclasses"
+    1.0 "macros"
     1.0 types
     1.0 "first-class support for laziness"
 
