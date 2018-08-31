@@ -129,6 +129,7 @@
     1.0 language " is unreadable."
     1.0 language " has no libraries."
     1.0 language " has poor support for concurrency."
+    1.0 "The " language " compiler doesn't even optimize tail recursion."
 
 :return
     1.0 take
