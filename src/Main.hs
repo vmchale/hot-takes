@@ -16,20 +16,19 @@ import           Text.Madlibs (madFile, run)
 randomText :: IO Text
 randomText = run $(madFile "mad-src/hot-takes.mad")
 
-type Model = Text
+type Model = MisoString
 
 data Action
   = Regenerate
-  | Write Text
+  | Write MisoString
   | NoOp
-  deriving (Show, Eq)
 
 main :: IO ()
 main = startApp App {..}
   where
     mountPoint = Nothing
     initialAction = NoOp
-    model  = ""
+    model  = mempty
     update = updateModel
     view   = viewModel
     events = defaultEvents
@@ -44,29 +43,30 @@ mkFont i = [ style_ $ M.fromList [("font", toMisoString (show i) <> "px \"Comic 
 largeFont :: [Attribute action]
 largeFont = mkFont 20
 
-buttonFont :: [Attribute action]
-buttonFont = mkFont 50
-
 fontStyles :: [Attribute action]
 fontStyles = mkFont 30
 
 buttonTraits :: [Attribute action]
 buttonTraits = class_ "button" : buttonFont
+    where buttonFont = mkFont 50
 
 updateModel :: Action -> Model -> Effect Action Model
-updateModel Regenerate m = m <# fmap Write randomText
+updateModel Regenerate m = m <# fmap (Write . toMisoString) randomText
 updateModel (Write t) _  = noEff t
 updateModel NoOp m       = noEff m
 
 keypress :: S.Set Int -> Action
-keypress keys = if 82 `elem` S.toList keys then Regenerate else NoOp
+keypress keys =
+    if 82 `elem` S.toList keys
+        then Regenerate
+        else NoOp
 
 viewModel :: Model -> View Action
 viewModel x = div_ backgroundStyle
     [
       p_ largeFont [ text "Press 'more' or hit 'r' for another hot take" ]
     , p_ [] [ div_ (onClick Regenerate : buttonTraits) [ text "more" ] ]
-    , p_ fontStyles [ text (toMisoString x) ]
+    , p_ fontStyles [ text x ]
     , p_ [] [ footer ]
     ]
 

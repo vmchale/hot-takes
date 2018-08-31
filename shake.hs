@@ -1,3 +1,5 @@
+{-# LANGUAGE ScopedTypeVariables #-}
+
 import           Development.Shake
 import           Development.Shake.Cabal
 import           Development.Shake.Clean
@@ -30,9 +32,9 @@ main = shakeArgs shakeOptions { shakeFiles = ".shake", shakeLint = Just LintBasi
         liftIO $ writeFile out new
 
     "dist-newstyle/build/x86_64-linux/ghcjs-0.2.1.9008011/hot-takes-0.1.0.0/x/hot-takes/opt/build/hot-takes/hot-takes.jsexe/all.js" %> \_ -> do
+        need ["cabal.project.local"]
         need . snd =<< getCabalDepsA "hot-takes.cabal"
-        -- check the hot-takes.mad file so we don't push anything wrong
-        unit $ cmd ["bash", "-c", "madlang check mad-src/hot-takes.mad > /dev/null"]
+        (Stdout (_ :: String)) <- cmd ["madlang", "check", "mad-src/hot-takes.mad"]
         command [RemEnv "GHC_PACKAGE_PATH"] "cabal" ["new-build"]
 
     googleClosureCompiler ["dist-newstyle/build/x86_64-linux/ghcjs-0.2.1.9008011/hot-takes-0.1.0.0/x/hot-takes/opt/build/hot-takes/hot-takes.jsexe/all.js", "dist-newstyle/build/x86_64-linux/ghcjs-0.2.1.9008011/hot-takes-0.1.0.0/x/hot-takes/opt/build/hot-takes/hot-takes.jsexe/all.js"] "docs/all.min.js"

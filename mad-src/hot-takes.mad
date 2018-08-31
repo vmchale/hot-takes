@@ -111,7 +111,7 @@
     1.0 "FP"
     1.0 "Imperative"
 
-:define take
+:return
     1.0 language " is shit."
     1.0 language " is crap."
     1.0 language " is less practical than " language
@@ -119,6 +119,7 @@
     12.0 language " doesn't even have " feature "."
     1.0 language " is the only language you'll ever need."
     1.0 language " is faster than C"
+    1.0 language " is a derivative of " language
     1.0 language " isn't useful in the real world."
     3.0 language " is " paradigm "."
     1.0 language " isn't beginner-friendly."
@@ -131,7 +132,7 @@
     1.0 language " causes brain damage."
     1.0 language " is for stupid people."
     1.0 "No one uses " language "."
-    1.0 language " has confusing syntax."
+    1.0 language " has terrible syntax."
     1.0 language "'s garbage collector is crap."
     1.0 language " is masturbatory"
     1.0 language " is not fit for production."
@@ -145,6 +146,4 @@
     1.0 language " is line noise."
     1.0 language " has curly braces and thus it is fast."
     1.0 language " supports functional reactive programming."
-
-:return
-    1.0 take
+    1.0 language " doesn't treat you like a child."
