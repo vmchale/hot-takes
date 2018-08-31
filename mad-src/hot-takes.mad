@@ -136,6 +136,7 @@
     1.0 "The " language " compiler doesn't even optimize tail recursion."
     1.0 language " is line noise."
     1.0 language " has curly braces and thus it is fast."
+    1.0 language " supports functional reactive programming."
 
 :return
     1.0 take
