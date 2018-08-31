@@ -130,6 +130,8 @@
     1.0 language " has no libraries."
     1.0 language " has poor support for concurrency."
     1.0 "The " language " compiler doesn't even optimize tail recursion."
+    1.0 language " is line noise."
+    1.0 language " has curly braces and thus it is fast."
 
 :return
     1.0 take
