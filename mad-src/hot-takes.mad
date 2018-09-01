@@ -111,6 +111,10 @@
     1.0 "FP"
     1.0 "Imperative"
 
+:define processor-feature
+    1.0 "SIMD"
+    1.0 "AVX"
+
 :return
     1.0 language " is shit."
     1.0 language " is crap."
@@ -147,3 +151,4 @@
     1.0 language " has curly braces and thus it is fast."
     1.0 language " supports functional reactive programming."
     1.0 language " doesn't treat you like a child."
+    1.0 language " has good support for " processor-feature "."
