@@ -1,6 +1,7 @@
 # hot-takes
 
-A hot take generator written in Haskell with Madlang + Miso.
+A hot take generator written in Haskell with Madlang + Miso. See it
+[here](https://vmchale.github.io/hot-takes/).
 
 ```
 -------------------------------------------------------------------------------
