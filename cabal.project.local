@@ -1,5 +1,6 @@
 constraints: network < 2.7
            , composition-prelude < 1.5.3.0
            , hot-takes +development
+           , megaparsec < 7.0.0
 optimization: 2
 compiler: ghcjs
